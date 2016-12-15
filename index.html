@@ -3,6 +3,16 @@
   <head>
     <title>Sonatype Team Map</title>
 
+  </head>
+  <body>
+
+    <div id="app">
+      <!-- DOM manipulation is restricted to this element -->
+    </div>
+
+    <!-- Load Google maps asynchronously -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCokS1XhIEqmrvv2rMCmC7V3m_m03E_D6k&callback=initMap"></script>
+
     <!-- Dependencies -->
     <script src="js/deps/jquery-3.1.1.min.js"></script>
     <script src="js/deps/underscore-min.js"></script>
@@ -12,6 +22,7 @@
     <script src="js/app/models/mocks.js"></script>
     <script src="js/app/models/person.js"></script>
     <script src="js/app/models/people.js"></script>
+    <script src="js/app/models/events.js"></script>
     <script src="js/app/views/map/map.js"></script>
     <script src="js/app/views/master-detail/master-detail.js"></script>
     <script src="js/app/views/banner/banner.js"></script>
@@ -22,21 +33,25 @@
     <script src="js/app/views/people-list/item/people-list__item.js"></script>
     <script src="js/app/views/people-detail/people-detail.js"></script>
     <script src="js/app/views/content/content.js"></script>
-    <script src="js/app/app.js"></script>
-
-  </head>
-  <body>
-
-    <div id="app">
-      <!-- DOM manipulation is restricted to this element -->
-    </div>
+    <script src="js/app/views/app.js"></script>
 
     <!-- Start the app -->
     <script>
+      // Data
       var TeamMapData = new People(Mocks());
+
+      // Event bus
+      var TeamMapEvents = Events();
+
+      // Map
+      function initMap() {
+        TeamMapEvents.trigger("map:init", google.maps);
+      }
+
+      // App bootstrapping
       var TeamMapApp = new App({
         el: "#app"
-      })
+      });
     </script>
 
   </body>
