@@ -2,13 +2,15 @@ var PeopleList = Backbone.View.extend({
   className: "people-list",
 
   initialize: function() {
+    var me = this;
+
     // Child views
     this.items = [];
-    for (var i = 0; i < TeamMapData.length; ++i) {
-      this.items.push(new PeopleItem({
-        model: TeamMapData.at(i)
+    TeamMapData.each(function(m) {
+      me.items.push(new PeopleItem({
+        model: m
       }));
-    }
+    });
 
     this.render();
   },
