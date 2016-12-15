@@ -5,6 +5,10 @@
   background-color: #f4f4f4;
 }
 
+.people-list__item:first-child {
+  border-top: none;
+}
+
 .people-list__item > *:last-child {
   padding-left: 1em;
 }

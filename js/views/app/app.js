@@ -11,8 +11,8 @@ var App = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.append(this.banner.el);
     this.$el.append(this.filterBar.el);
     this.$el.append(this.content.el);
+    this.$el.append(this.banner.el);
   }
 });

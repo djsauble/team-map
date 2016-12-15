@@ -6,6 +6,6 @@ var Banner = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html("Don't see your information here? Email <a href='mailto:dsauble@sonatype.com'>dsauble@sonatype.com</a>");
+    this.$el.html("See something amiss? Let <a href='mailto:dsauble@sonatype.com'>Daniel Sauble</a> know.");
   }
 });
