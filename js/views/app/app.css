@@ -1,0 +1,9 @@
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app > div:last-child {
+  flex-grow: 1;
+}

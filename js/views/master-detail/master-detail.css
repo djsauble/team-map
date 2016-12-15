@@ -1,0 +1,4 @@
+.master-detail_state_master .master-detail__detail,
+.master-detail_state_detail .master-detail__master {
+  display: none;
+}

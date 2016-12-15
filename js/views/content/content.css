@@ -1,0 +1,8 @@
+.content {
+  padding: 1em;
+  display: flex;
+}
+
+.content > div:first-child {
+  flex-grow: 1;
+}
