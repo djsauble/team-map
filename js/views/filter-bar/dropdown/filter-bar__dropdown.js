@@ -1,6 +1,12 @@
 var FilterDropdown = Backbone.View.extend({
   className: "filter-bar__dropdown",
 
+  events: {
+    "change select": function(e) {
+      this.model.set("selected", e.target.selectedOptions[0].value);
+    }
+  },
+
   initialize: function() {
     this.render();
   },

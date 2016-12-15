@@ -1,7 +1,7 @@
 var App = Backbone.View.extend({
 
   initialize: function() {
-    // Filter models
+    // Define filters
     var teamFilter = new Backbone.Model({
       "name": "Team",
       "type": "dropdown",
@@ -28,8 +28,18 @@ var App = Backbone.View.extend({
       "type": "text",
       "value": ""
     });
+    var filters = new Backbone.Collection([
+      teamFilter,
+      locationFilter,
+      peopleFilter
+    ]);
 
-    // Child views
+    // When the filter changes, forward it to the event bus
+    filters.on('change', function(m) {
+      TeamMapEvents.trigger('filter:change', filters, m);
+    });
+
+    // Create child views
     this.banner = new Banner();
     this.filterBar = new FilterBar({
       collection: new Backbone.Collection([

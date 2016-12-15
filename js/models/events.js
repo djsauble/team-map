@@ -8,8 +8,7 @@ var Events = function() {
   object.on("map:init", function(maps) {
     console.log("Maps initialized");
   });
-
-  object.on("filter:change", function(model) {
+  object.on("filter:change", function(collection, model) {
     console.log("Filter changed");
   });
 
