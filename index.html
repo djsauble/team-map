@@ -10,6 +10,7 @@
     <link href="js/views/content/content.css" type="text/css" rel="stylesheet"></link>
     <link href="js/views/map/map.css" type="text/css" rel="stylesheet"></link>
     <link href="js/views/master-detail/master-detail.css" type="text/css" rel="stylesheet"></link>
+    <link href="js/views/people-list/item/people-list__item.css" type="text/css" rel="stylesheet"></link>
     <style>
       /* Reset styles */
       body {
@@ -22,9 +23,6 @@
     <div class="app">
       <!-- DOM manipulation is restricted to this element -->
     </div>
-
-    <!-- Load Google maps asynchronously -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCokS1XhIEqmrvv2rMCmC7V3m_m03E_D6k&callback=initMap"></script>
 
     <!-- Dependencies -->
     <script src="js/deps/jquery-3.1.1.min.js"></script>
@@ -66,6 +64,9 @@
         el: ".app"
       });
     </script>
+
+    <!-- Load Google maps asynchronously -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCokS1XhIEqmrvv2rMCmC7V3m_m03E_D6k&callback=initMap"></script>
 
   </body>
 </html>

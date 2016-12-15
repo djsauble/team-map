@@ -2,9 +2,11 @@ var Person = Backbone.Model.extend({
   defaults: {
     "name": "John Smith",
     "photo": "images/unknown.png",
-    "bio": "No bio",
     "role": "Sonatyper",
+    "team": "No team",
+    "email": "No email",
     "interests": [],
-    "team": "No team"
+    "location": null,
+    "bio": "No bio"
   }
 });

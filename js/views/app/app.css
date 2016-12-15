@@ -2,6 +2,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: Helvetica, Arial, Sans-Serif;
 }
 
 .app > div:last-child {

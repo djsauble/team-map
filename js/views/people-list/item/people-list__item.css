@@ -1,0 +1,18 @@
+.people-list__item {
+  padding: 1em;
+  display: flex;
+  border-top: 1px solid #999999;
+}
+
+.people-list__item > *:last-child {
+  padding-left: 1em;
+}
+
+.people-list__item img {
+  border-radius: 50%;
+  border: 1px solid #999999;
+}
+
+.people-list__item h3 {
+  margin-bottom: 0;
+}
