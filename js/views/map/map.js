@@ -1,11 +1,24 @@
 var Map = Backbone.View.extend({
   className: "map",
 
+  mapApi: null,
+  mapReference: null,
+
   initialize: function() {
-    this.render();
+    var me = this;
+
+    TeamMapEvents.on("map:init", function(maps) {
+      me.mapApi = maps;
+      me.render();
+    }, me);
   },
 
   render: function() {
-    this.$el.html("You have a map!");
+    if (this.mapApi && !this.mapReference) {
+      this.mapReference = new this.mapApi.Map($(".map")[0], {
+        zoom: 2,
+        center: {lat: 38.272689, lng: 10.546875}
+      });
+    }
   }
 });
