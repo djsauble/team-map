@@ -9,7 +9,11 @@ var FilterDropdown = Backbone.View.extend({
     "<label><%= name %></label>" +
     "<select>" +
     "<% options.forEach(function(o) { %>" +
+    "<% if (selected === o) { %>" +
+    "<option selected><%= o %></option>" +
+    "<% } else { %>" +
     "<option><%= o %></option>" +
+    "<% } %>" +
     "<% }); %>" +
     "</select>"
   ),

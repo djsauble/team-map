@@ -9,5 +9,9 @@ var Events = function() {
     console.log("Maps initialized");
   });
 
+  object.on("filter:change", function(model) {
+    console.log("Filter changed");
+  });
+
   return object;
 };
