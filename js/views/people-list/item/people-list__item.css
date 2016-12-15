@@ -1,7 +1,8 @@
 .people-list__item {
   padding: 1em;
   display: flex;
-  border-top: 1px solid #999999;
+  border-top: 1px solid #d8d8d8;
+  background-color: #f4f4f4;
 }
 
 .people-list__item > *:last-child {
@@ -10,7 +11,7 @@
 
 .people-list__item img {
   border-radius: 50%;
-  border: 1px solid #999999;
+  border: 1px solid #d8d8d8;
 }
 
 .people-list__item h3 {

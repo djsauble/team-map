@@ -128,6 +128,19 @@ var Mocks = function() {
       }
     },
     {
+      "name": "Jamie Whitehouse",
+      "photo": "images/people/jamie_whitehouse.jpg",
+      "role": "Product Owner",
+      "team": "IQ",
+      "email": "jwhitehouse@sonatype.com",
+      "location": {
+        "current": {
+          "lat": 46.522099,
+          "lng": -80.953035
+        }
+      }
+    },
+    {
       "name": "Joe Tom",
       "photo": "images/people/joe_tom.jpg",
       "role": "QA",
@@ -137,6 +150,19 @@ var Mocks = function() {
         "current": {
           "lat": 40.712784,
           "lng": -74.005941
+        }
+      }
+    },
+    {
+      "name": "Micah Horvat",
+      "photo": "images/people/micah_horvat.jpg",
+      "role": "UX Designer",
+      "team": "IQ",
+      "email": "mhorvat@sonatype.com",
+      "location": {
+        "current": {
+          "lat": 33.748995,
+          "lng": -84.387982
         }
       }
     },
