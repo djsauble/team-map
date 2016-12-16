@@ -14,8 +14,11 @@ var Events = function() {
   object.on("filter:name", function(name) {
     //console.log("Filter by name");
   });
+  object.on("filter:map", function(names) {
+    //console.log("Filter by map");
+  });
   object.on("master-detail:state:change", function(state) {
-    console.log("Master-detail state change");
+    //console.log("Master-detail state change");
   });
 
   return object;

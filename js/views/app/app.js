@@ -17,9 +17,15 @@ var App = Backbone.View.extend({
       "type": "text",
       "value": ""
     });
+    var mapFilter = new Backbone.Model({
+      "name": "Map",
+      "type": "map",
+      "value": null
+    });
     var filters = new Backbone.Collection([
       teamFilter,
-      peopleFilter
+      peopleFilter,
+      mapFilter
     ]);
 
     // When the filter changes, forward it to the event bus
@@ -30,6 +36,11 @@ var App = Backbone.View.extend({
     // When a request is made to filter by name, update the associated model
     TeamMapEvents.on('filter:name', function(name) {
       peopleFilter.set('value', name);
+    });
+
+    // When a request is made to filter by map, update the associated model
+    TeamMapEvents.on('filter:map', function(names) {
+      mapFilter.set('value', names);
     });
 
     // Create child views

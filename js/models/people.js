@@ -23,11 +23,20 @@ var People = Backbone.Collection.extend({
           }
 
         }
-        else {
+        else if (filter.get('type') === 'text') {
 
           // Filter based on name
           if (filter.get('name') === 'Name') {
             if (filter.get('value') !== '' && m.get('name').toLowerCase().indexOf(filter.get('value').toLowerCase()) === -1) {
+              filtered = true;
+            }
+          }
+        }
+        else if (filter.get('type') === 'map') {
+
+          // Filter based on map boundaries
+          if (filter.get('value') !== null) {
+            if (filter.get('value').includes(m.get('name')) === false) {
               filtered = true;
             }
           }

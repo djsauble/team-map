@@ -43,6 +43,22 @@ var Map = Backbone.View.extend({
       this.mapMarkers.forEach(function(m) {
         m.cluster = me.mapMarkerCluster;
       });
+
+      // Listen for resize events
+      //me.filterBounds(me);
+      this.mapReference.addListener("bounds_changed", function() {
+        me.filterBounds(me);
+      });
     }
+  },
+
+  filterBounds: function(me) {
+    var names = [];
+    me.mapMarkers.forEach(function(m) {
+      if (me.mapReference.getBounds().contains(m.marker.getPosition())) {
+        names.push(m.model.get("name"));
+      }
+    });
+    TeamMapEvents.trigger("filter:map", names);
   }
 });
