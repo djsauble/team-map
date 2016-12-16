@@ -11,6 +11,9 @@ var Events = function() {
   object.on("filter:change", function(collection, model) {
     console.log("Filter changed");
   });
+  object.on("filter:name", function(name) {
+    console.log("Filter by name");
+  });
 
   return object;
 };

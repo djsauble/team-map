@@ -12,17 +12,6 @@ var App = Backbone.View.extend({
       ],
       "selected": "All"
     });
-    var locationFilter = new Backbone.Model({
-      "name": "Location",
-      "type": "dropdown",
-      "options": [
-        "All",
-        "Toronto, Ontario, Canada",
-        "Portland, Oregon, United States",
-        "Alexandria, Virginia, United States"
-      ],
-      "selected": "All"
-    });
     var peopleFilter = new Backbone.Model({
       "name": "Name",
       "type": "text",
@@ -30,7 +19,6 @@ var App = Backbone.View.extend({
     });
     var filters = new Backbone.Collection([
       teamFilter,
-      locationFilter,
       peopleFilter
     ]);
 
@@ -39,12 +27,16 @@ var App = Backbone.View.extend({
       TeamMapEvents.trigger('filter:change', filters, m);
     });
 
+    // When a request is made to filter by name, update the associated model
+    TeamMapEvents.on('filter:name', function(name) {
+      peopleFilter.set('value', name);
+    });
+
     // Create child views
     this.banner = new Banner();
     this.filterBar = new FilterBar({
       collection: new Backbone.Collection([
         teamFilter,
-        locationFilter,
         peopleFilter
       ])
     });

@@ -1,6 +1,12 @@
 var PeopleItem = Backbone.View.extend({
   className: "people-list__item",
 
+  events: {
+    "click": function() {
+      TeamMapEvents.trigger("filter:name", this.model.get("name"));
+    }
+  },
+
   initialize: function() {
 
     this.model.on("change", this.render, this);
