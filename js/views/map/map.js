@@ -14,6 +14,8 @@ var Map = Backbone.View.extend({
   },
 
   render: function() {
+    var me = this;
+
     // Add the map to the DOM, if it doesn't exist yet
     if (this.mapApi && !this.mapReference) {
       this.mapReference = new this.mapApi.Map($(".map")[0], {
@@ -21,22 +23,26 @@ var Map = Backbone.View.extend({
         center: {lat: 38.272689, lng: 10.546875}
       });
 
-      // Add points to the map
+      // Generate map markers
       this.mapMarkers = TeamMapData.map(function(m) {
-        return new google.maps.Marker({
-          position: m.attributes.location.current,
-          label: m.attributes.name
+        return new PeopleMarker({
+          model: m
         });
       });
 
       // Add a marker clusterer to manage the markers
       this.mapMarkerCluster = new MarkerClusterer(
         this.mapReference,
-        this.mapMarkers,
+        this.mapMarkers.map(function(m) { return m.marker; }),
         {
           imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
         }
       );
+
+      // Allow markers to filter themselves out of the cluster
+      this.mapMarkers.forEach(function(m) {
+        m.cluster = me.mapMarkerCluster;
+      });
     }
   }
 });
