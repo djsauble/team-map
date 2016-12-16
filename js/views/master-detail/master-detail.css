@@ -1,8 +1,13 @@
 .master-detail {
   overflow: scroll;
+  background-color: #f4f4f4;
 }
 
-.master-detail_state_master .master-detail__detail,
-.master-detail_state_detail .master-detail__master {
+.master-detail_state_empty .master-detail__detail,
+.master-detail_state_empty .master-detail__master,
+.master-detail_state_detail .master-detail__empty,
+.master-detail_state_detail .master-detail__master,
+.master-detail_state_master .master-detail__empty,
+.master-detail_state_master .master-detail__detail {
   display: none;
 }

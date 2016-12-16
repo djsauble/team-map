@@ -13,6 +13,7 @@
     <link href="js/views/map/map.css" type="text/css" rel="stylesheet"></link>
     <link href="js/views/master-detail/master-detail.css" type="text/css" rel="stylesheet"></link>
     <link href="js/views/people-list/item/people-list__item.css" type="text/css" rel="stylesheet"></link>
+    <link href="js/views/empty-state/empty-state.css" type="text/css" rel="stylesheet"></link>
     <style>
       /* Reset styles */
       body {
@@ -45,6 +46,7 @@
     <script src="js/views/people-list/people-list.js"></script>
     <script src="js/views/people-list/item/people-list__item.js"></script>
     <script src="js/views/people-detail/people-detail.js"></script>
+    <script src="js/views/empty-state/empty-state.js"></script>
     <script src="js/views/content/content.js"></script>
     <script src="js/views/app/app.js"></script>
 
@@ -61,13 +63,16 @@
         var count = collection.visible();
 
         if (count === 0) {
-          console.log("Show the empty state");
+          // Show the empty state view
+          TeamMapEvents.trigger("master-detail:state:change", 0);
         }
         else if (count === 1) {
-          console.log("Show the detail panel for the current person");
+          // Show the person detail view
+          TeamMapEvents.trigger("master-detail:state:change", 1);
         }
         else {
-          console.log("Show a list of people");
+          // Show the master list view
+          TeamMapEvents.trigger("master-detail:state:change", 2);
         }
       });
 

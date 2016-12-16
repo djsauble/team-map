@@ -2,7 +2,6 @@
   padding: 1em;
   display: flex;
   border-top: 1px solid #d8d8d8;
-  background-color: #f4f4f4;
 }
 
 .people-list__item:hover {

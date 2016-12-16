@@ -1,0 +1,10 @@
+.empty-state {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.empty-state span {
+  flex-grow: 1;
+  text-align: center;
+}
