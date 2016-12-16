@@ -5,6 +5,10 @@
   background-color: #f4f4f4;
 }
 
+.people-list__item:hover {
+  background-color: #d8d8d8;
+}
+
 .people-list__item:first-child {
   border-top: none;
 }
