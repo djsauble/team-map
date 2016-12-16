@@ -1,5 +1,5 @@
-var PeopleItem = Backbone.View.extend({
-  className: "people-list__item",
+var PeopleSummary = Backbone.View.extend({
+  className: "people-summary",
 
   events: {
     "click": function() {

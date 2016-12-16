@@ -1,26 +1,26 @@
-.people-list__item {
+.people-summary {
   padding: 1em;
   display: flex;
   border-top: 1px solid #d8d8d8;
 }
 
-.people-list__item:hover {
+.people-summary:hover {
   background-color: #d8d8d8;
 }
 
-.people-list__item:first-child {
+.people-summary:first-child {
   border-top: none;
 }
 
-.people-list__item > *:last-child {
+.people-summary > *:last-child {
   padding-left: 1em;
 }
 
-.people-list__item img {
+.people-summary img {
   border-radius: 50%;
   border: 1px solid #d8d8d8;
 }
 
-.people-list__item h3 {
+.people-summary h3 {
   margin-bottom: 0;
 }

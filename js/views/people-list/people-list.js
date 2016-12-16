@@ -7,7 +7,7 @@ var PeopleList = Backbone.View.extend({
     // Child views
     this.items = [];
     TeamMapData.each(function(m) {
-      me.items.push(new PeopleItem({
+      me.items.push(new PeopleSummary({
         model: m
       }));
     });

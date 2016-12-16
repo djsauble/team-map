@@ -25,7 +25,6 @@ var MasterDetail = Backbone.View.extend({
 
     // Listen for state changes
     TeamMapEvents.on("master-detail:state:change", function(state) {
-      console.log(state);
       this.setState(state);
     }, this);
 

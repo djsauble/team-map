@@ -224,6 +224,12 @@ var Mocks = function() {
       "role": "Agile Coach",
       "team": "Nexus",
       "email": "sjasmin@sonatype.com",
+      "interests": [
+        "Reading books on paper",
+        "Running roads and trails",
+        "Volunteering: getting kids active as part of their daily routine, building playgrounds",
+        "Cheesemonger in training"
+      ],
       "location": {
         "current": {
           "lat": 38.804836,

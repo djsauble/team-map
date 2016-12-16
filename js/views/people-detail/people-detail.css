@@ -1,0 +1,23 @@
+.people-detail {
+  padding: 1em;
+}
+
+.people-detail img {
+  border-radius: 50%;
+  border: 1px solid #d8d8d8;
+  float: right;
+}
+
+.people-detail h2 {
+  margin-bottom: 0.2em;
+}
+
+.people-detail h4 {
+  margin-bottom: 0.5em;
+}
+
+.people-detail ul {
+  margin: 0;
+  padding-left: 1em;
+  padding-right: 0;
+}
