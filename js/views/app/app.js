@@ -43,6 +43,22 @@ var App = Backbone.View.extend({
       mapFilter.set('value', names);
     });
 
+    // When a request is made to clear the filters, do so
+    TeamMapEvents.on('filter:clear', function() {
+      var changed = false;
+      if (teamFilter.get('value') !== 'All') {
+        teamFilter.attributes.selected = 'All';
+        changed = true;
+      }
+      if (peopleFilter.get('value') !== '') {
+        peopleFilter.attributes.value = '';
+        changed = true;
+      }
+      if (changed) {
+        TeamMapEvents.trigger("filter:change", filters);
+      }
+    });
+
     // Create child views
     this.banner = new Banner();
     this.filterBar = new FilterBar({

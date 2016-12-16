@@ -10,6 +10,7 @@ var FilterText = Backbone.View.extend({
   initialize: function() {
 
     TeamMapEvents.on('filter:name', this.render, this);
+    TeamMapEvents.on('filter:cleared', this.render, this);
 
     this.render();
   },

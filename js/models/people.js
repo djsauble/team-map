@@ -1,13 +1,9 @@
 var People = Backbone.Collection.extend({
   model: Person,
 
-  initialize: function() {
-
-    // Whenever the collection changes, check the filtered count
-    TeamMapEvents.on("filter:change", this.updateState, this);
-  },
-
   applyFilters: function(filters) {
+    var anyFiltered = false;
+
     this.each(function(m) {
 
       var filtered = false;
@@ -19,6 +15,7 @@ var People = Backbone.Collection.extend({
           if (filter.get('name') === 'Team') {
             if (filter.get('selected') !== 'All' && filter.get('selected') !== m.get('team')) {
               filtered = true;
+              anyFiltered = true;
             }
           }
 
@@ -29,6 +26,7 @@ var People = Backbone.Collection.extend({
           if (filter.get('name') === 'Name') {
             if (filter.get('value') !== '' && m.get('name').toLowerCase().indexOf(filter.get('value').toLowerCase()) === -1) {
               filtered = true;
+              anyFiltered = true;
             }
           }
         }
@@ -46,7 +44,16 @@ var People = Backbone.Collection.extend({
       m.set('filtered', filtered);
     });
 
+    // Notify that the change event has completed
     TeamMapEvents.trigger("filter:changed", this);
+
+    // Determine if any filters are set
+    if (anyFiltered) {
+      TeamMapEvents.trigger("filter:set");
+    }
+    else {
+      TeamMapEvents.trigger("filter:cleared");
+    }
   },
 
   visible: function() {

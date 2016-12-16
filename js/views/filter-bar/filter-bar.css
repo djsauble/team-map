@@ -6,11 +6,22 @@
 }
 
 .filter-bar > * {
-  padding-left: 1em;
+  margin-left: 1em;
 }
 
 .filter-bar > *:first-child {
-  padding-left: 0;
+  margin-left: 0;
   text-align: right;
   flex-grow: 1;
+}
+
+.filter-bar button {
+  background-color: red;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+}
+
+.filter-bar button[disabled] {
+  background-color: #999999;
 }

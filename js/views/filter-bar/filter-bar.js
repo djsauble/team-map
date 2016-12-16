@@ -1,6 +1,12 @@
 var FilterBar = Backbone.View.extend({
   className: "filter-bar",
 
+  events: {
+    "click button": function() {
+      TeamMapEvents.trigger("filter:clear");
+    }
+  },
+
   initialize: function() {
     var me = this;
 
@@ -19,6 +25,10 @@ var FilterBar = Backbone.View.extend({
       }
     });
 
+    // Whenever there are active filters, enable the clear filter button
+    TeamMapEvents.on("filter:cleared", this.disableClearFilterButton, this);
+    TeamMapEvents.on("filter:set", this.enableClearFilterButton, this);
+
     this.render();
   },
 
@@ -28,5 +38,16 @@ var FilterBar = Backbone.View.extend({
     this.filterViews.forEach(function(v) {
       me.$el.append(v.el);
     });
+
+    // Append a Clear Filter button
+    this.$el.append("<button disabled>Clear Filters</button>");
+  },
+
+  disableClearFilterButton: function() {
+    this.$("button").attr("disabled", true);
+  },
+
+  enableClearFilterButton: function() {
+    this.$("button").attr("disabled", false);
   }
 });

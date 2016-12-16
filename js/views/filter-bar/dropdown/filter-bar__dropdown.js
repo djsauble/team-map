@@ -8,6 +8,8 @@ var FilterDropdown = Backbone.View.extend({
   },
 
   initialize: function() {
+    TeamMapEvents.on("filter:cleared", this.render, this);
+
     this.render();
   },
 
