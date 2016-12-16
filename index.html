@@ -56,35 +56,19 @@
 
       // Data
       var TeamMapData = new People(Mocks());
-      TeamMapEvents.on("filter:change", function(collection, model) {
-        TeamMapData.each(function(m) {
+      TeamMapEvents.on("filter:change", TeamMapData.applyFilters, TeamMapData);
+      TeamMapEvents.on("filter:changed", function(collection) {
+        var count = collection.visible();
 
-          var filtered = false;
-
-          collection.each(function(filter) {
-            if (filter.get('type') === 'dropdown') {
-
-              // Filter based on team
-              if (filter.get('name') === 'Team') {
-                if (filter.get('selected') !== 'All' && filter.get('selected') !== m.get('team')) {
-                  filtered = true;
-                }
-              }
-
-            }
-            else {
-
-              // Filter based on name
-              if (filter.get('name') === 'Name') {
-                if (filter.get('value') !== '' && m.get('name').toLowerCase().indexOf(filter.get('value').toLowerCase()) === -1) {
-                  filtered = true;
-                }
-              }
-            }
-          });
-
-          m.set('filtered', filtered);
-        });
+        if (count === 0) {
+          console.log("Show the empty state");
+        }
+        else if (count === 1) {
+          console.log("Show the detail panel for the current person");
+        }
+        else {
+          console.log("Show a list of people");
+        }
       });
 
       // Map

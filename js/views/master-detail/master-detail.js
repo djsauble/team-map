@@ -17,7 +17,7 @@ var MasterDetail = Backbone.View.extend({
     this.detail.$el.addClass("master-detail__detail");
 
     // State
-    this.currentState = this.STATE_MASTER;
+    this.setState(this.STATE_MASTER);
 
     this.render();
   },
@@ -25,8 +25,16 @@ var MasterDetail = Backbone.View.extend({
   render: function() {
     this.$el.append(this.master.el);
     this.$el.append(this.detail.el);
+  },
 
-    // Set state
-    this.$el.addClass(this.STATES[this.currentState]);
+  setState: function(state) {
+    for (var i = 0; i < Object.keys(this.STATES).length; ++i) {
+      if (i === state) {
+        this.$el.addClass(this.STATES[i]);
+      }
+      else {
+        this.$el.removeClass(this.STATES[i]);
+      }
+    }
   }
 });
