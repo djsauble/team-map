@@ -50,11 +50,42 @@
 
     <!-- Start the app -->
     <script>
-      // Data
-      var TeamMapData = new People(Mocks());
 
       // Event bus
       var TeamMapEvents = Events();
+
+      // Data
+      var TeamMapData = new People(Mocks());
+      TeamMapEvents.on("filter:change", function(collection, model) {
+        TeamMapData.each(function(m) {
+
+          var filtered = false;
+
+          collection.each(function(filter) {
+            if (filter.get('type') === 'dropdown') {
+
+              // Filter based on team
+              if (filter.get('name') === 'Team') {
+                if (filter.get('selected') !== 'All' && filter.get('selected') !== m.get('team')) {
+                  filtered = true;
+                }
+              }
+
+            }
+            else {
+
+              // Filter based on name
+              if (filter.get('name') === 'Name') {
+                if (filter.get('value') !== '' && m.get('name').toLowerCase().indexOf(filter.get('value').toLowerCase()) === -1) {
+                  filtered = true;
+                }
+              }
+            }
+          });
+
+          m.set('filtered', filtered);
+        });
+      });
 
       // Map
       function initMap() {

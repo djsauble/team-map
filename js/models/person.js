@@ -7,6 +7,7 @@ var Person = Backbone.Model.extend({
     "email": "No email",
     "interests": [],
     "location": null,
-    "bio": "No bio"
+    "bio": "No bio",
+    "filtered": false
   }
 });

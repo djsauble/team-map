@@ -2,6 +2,9 @@ var PeopleItem = Backbone.View.extend({
   className: "people-list__item",
 
   initialize: function() {
+
+    this.model.on("change", this.render, this);
+
     this.render();
   },
 
@@ -17,5 +20,12 @@ var PeopleItem = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.model.attributes));
+
+    if (this.model.get('filtered')) {
+      this.$el.hide();
+    }
+    else {
+      this.$el.show();
+    }
   }
 });

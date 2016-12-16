@@ -5,3 +5,7 @@
 .content > div:first-child {
   flex-grow: 1;
 }
+
+.content > div:last-child {
+  width: 350px;
+}

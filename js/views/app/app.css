@@ -5,6 +5,6 @@
   font-family: Helvetica, Arial, Sans-Serif;
 }
 
-.app > div:last-child {
+.app > div:nth-child(2) {
   flex-grow: 1;
 }
