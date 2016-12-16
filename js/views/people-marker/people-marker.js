@@ -4,7 +4,11 @@ var PeopleMarker = Backbone.View.extend({
 
     this.marker = new google.maps.Marker({
       position: this.model.attributes.location.current,
-      label: this.model.attributes.name
+      icon: this.model.attributes.pin,
+      shape: {
+        type: 'circle',
+        coords: [40, 40, 40]
+      }
     });
 
     this.model.on("change", this.render, this);
